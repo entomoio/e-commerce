@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'src/app.dart';
 // import 'src/settings/settings_controller.dart';
@@ -10,6 +12,8 @@ import 'package:go_router/go_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final sharedPreferences = await SharedPreferences.getInstance();
+  //this will make appBar red and print the error on screen
   // * For more info on error handling, see:
   // * https://docs.flutter.dev/testing/errors
   await runZonedGuarded(() async {
@@ -29,7 +33,7 @@ void main() async {
 
     GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
     // runApp(MyApp(settingsController: settingsController));
-    runApp(const MyApp());
+    runApp(const ProviderScope(child: MyApp()));
 
     // * This code will present some error UI if any uncaught exception happens
     FlutterError.onError = (FlutterErrorDetails details) {

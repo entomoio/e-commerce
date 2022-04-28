@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localization_ecommerce/src/features/products/data/fake_products_repository.dart';
 import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
 import 'package:localization_ecommerce/src/utils/currency_formatter.dart';
@@ -15,14 +16,15 @@ import 'package:localization_ecommerce/src/features/reviews/presentation/product
 import 'package:localization_ecommerce/src/features/products/domain/product.dart';
 
 /// Shows the product page for a given product ID.
-class ProductScreen extends StatelessWidget {
+class ProductScreen extends ConsumerWidget {
   const ProductScreen({Key? key, required this.productId}) : super(key: key);
   final String productId;
 
   @override
-  Widget build(BuildContext context) {
-    // TODO: Read from data source
-    final product = FakeProductsRepository.instance.getProduct(productId);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final productsRepository = ref.watch(productsRepositoryProvider);
+    final product = productsRepository.getProduct(productId)!;
+    // final product = FakeProductsRepository.instance.getProduct(productId);
     return Scaffold(
       appBar: const HomeAppBar(),
       body: product == null

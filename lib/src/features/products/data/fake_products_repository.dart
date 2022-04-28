@@ -1,15 +1,18 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localization_ecommerce/src/constants/test_products.dart';
 import 'package:localization_ecommerce/src/features/products/domain/product.dart';
 
 class FakeProductsRepository {
-  //add a singleton
-  FakeProductsRepository._(); //private constructor
-  // prevents creating new instance: repo = FakeProductsRepository.getProductList()
-  // enforces: FakeProductsRepository.instance.getProductList()
+  // //singletons makes our code hard to test (they are harcoded dependencies)
+  // FakeProductsRepository._();
+  // //private constructor
+  // // prevents creating new instance: repo = FakeProductsRepository.getProductList()
+  // // enforces: FakeProductsRepository.instance.getProductList()
+
+  // static FakeProductsRepository instance = FakeProductsRepository._();
 
   final List<Product> _products = kTestProducts;
 
-  static FakeProductsRepository instance = FakeProductsRepository._();
   List<Product> getProductList() {
     return _products;
   }
@@ -33,3 +36,8 @@ class FakeProductsRepository {
         .map((products) => products.firstWhere((product) => product.id == id));
   }
 }
+
+final productsRepositoryProvider = Provider<FakeProductsRepository>((ref) {
+  // return FakeProductsRepository.instance;
+  return FakeProductsRepository();
+});
