@@ -48,17 +48,26 @@ final productsRepositoryProvider = Provider<FakeProductsRepository>((ref) {
   return FakeProductsRepository();
 });
 
-final productsListStreamProvider = StreamProvider<List<Product>>((ref) {
+final productsListStreamProvider =
+    StreamProvider.autoDispose<List<Product>>((ref) {
+  // debugPrint('created productsListStreamProvider');
   final producsRepository = ref.watch(productsRepositoryProvider);
   return producsRepository.watchProductsList();
 });
 
-final productsListFutureProvider = FutureProvider<List<Product>>((ref) {
+final productsListFutureProvider =
+    FutureProvider.autoDispose<List<Product>>((ref) {
   final producsRepository = ref.watch(productsRepositoryProvider);
   return producsRepository.fetchProductsList();
 });
 
-final productProvider = StreamProvider.family<Product?, String>((ref, id) {
-  final productsRepository = ref.watch(productsRepositoryProvider);
-  return productsRepository.watchProduct(id);
-});
+final productProvider = StreamProvider.autoDispose.family<Product?, String>(
+  (ref, id) {
+    // debugPrint('created productProvider with id: $id');
+    // ref.onDispose(() => debugPrint('disposed productProvider'));
+    final productsRepository = ref.watch(productsRepositoryProvider);
+    return productsRepository.watchProduct(id);
+  },
+  // disposeDelay: const Duration(seconds: 5),
+  // cacheTime: const Duration(seconds: 5),
+);
