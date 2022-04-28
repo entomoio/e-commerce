@@ -22,13 +22,18 @@ class FakeProductsRepository {
   }
 
 //REST API
-  Future<List<Product>> fetchProductsList() {
+  Future<List<Product>> fetchProductsList() async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    // throw Exception('Connection problems');
     return Future.value(_products);
   }
 
 //realtime API (websockets, Firebase)
-  Stream<List<Product>> watchProductsList() {
-    return Stream.value(_products);
+  Stream<List<Product>> watchProductsList() async* {
+    //async* converts this to a stream generator
+    await Future.delayed(const Duration(milliseconds: 500));
+    // return Stream.value(_products);
+    yield _products;
   }
 
   Stream<Product?> watchProduct(String id) {
@@ -38,6 +43,17 @@ class FakeProductsRepository {
 }
 
 final productsRepositoryProvider = Provider<FakeProductsRepository>((ref) {
+  // // as a singleton
   // return FakeProductsRepository.instance;
   return FakeProductsRepository();
+});
+
+final productsListStreamProvider = StreamProvider<List<Product>>((ref) {
+  final producsRepository = ref.watch(productsRepositoryProvider);
+  return producsRepository.watchProductsList();
+});
+
+final productsListFutureProvider = FutureProvider<List<Product>>((ref) {
+  final producsRepository = ref.watch(productsRepositoryProvider);
+  return producsRepository.fetchProductsList();
 });
