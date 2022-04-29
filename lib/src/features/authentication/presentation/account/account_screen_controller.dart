@@ -6,7 +6,7 @@ class AccountScreenController extends StateNotifier<AsyncValue<void>> {
       : super(const AsyncValue.data(null));
   final FakeAuthRepository authRepository;
 
-  Future<bool> signOut() async {
+  Future<void> signOut() async {
     //set state to loading
     //sign out (using auth repository)
     //if success, set state to data
@@ -24,7 +24,9 @@ class AccountScreenController extends StateNotifier<AsyncValue<void>> {
 
     state = const AsyncValue<void>.loading();
     state = await AsyncValue.guard(() => authRepository.signOut());
-    return !state.hasError;
+
+    //goRouter refreshListenable redirects logout
+    // return !state.hasError;
   }
 }
 
