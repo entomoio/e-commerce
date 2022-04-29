@@ -25,6 +25,9 @@ Mainly, only four class types are being used:
 - StateNotifierProvider
 
 
+## Routing
+
+Routes are implemented via GoRouter, a package maitained by Google. Navigator.Pop is still being used instead of GoRouter's contet.pop(), because it can return a value (e.g. when closing OK/Cancel alert dialog) Extensible documentation can be found here
 
 
 ## Localization
