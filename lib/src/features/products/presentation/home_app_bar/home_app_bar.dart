@@ -1,6 +1,7 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localization_ecommerce/src/constants/breakpoints.dart';
+import 'package:localization_ecommerce/src/features/authentication/data/fake_auth_repository.dart';
 import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
-import 'package:localization_ecommerce/src/features/authentication/domain/app_user.dart';
 import 'package:localization_ecommerce/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/common_widgets/action_text_button.dart';
@@ -14,13 +15,12 @@ import 'package:go_router/go_router.dart';
 /// - [ShoppingCartIcon]
 /// - Orders button
 /// - Account or Sign-in button
-class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
+class HomeAppBar extends ConsumerWidget with PreferredSizeWidget {
   const HomeAppBar({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    // TODO: get user from auth repository
-    const user = AppUser(uid: '123', email: 'test@test.com');
+  Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(authStateChangeProvider).value;
     // * This widget is responsive.
     // * On large screen sizes, it shows all the actions in the app bar.
     // * On small screen sizes, it shows only the shopping cart icon and a
@@ -32,8 +32,8 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
     if (screenWidth < Breakpoint.tablet) {
       return AppBar(
         title: Text('My Shop'.hardcoded),
-        actions: const [
-          ShoppingCartIcon(),
+        actions: [
+          const ShoppingCartIcon(),
           MoreMenuButton(user: user),
         ],
       );
