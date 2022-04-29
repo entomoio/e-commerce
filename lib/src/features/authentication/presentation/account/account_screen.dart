@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/common_widgets/action_text_button.dart';
 import 'package:localization_ecommerce/src/common_widgets/responsive_center.dart';
 import 'package:localization_ecommerce/src/constants/app_sizes.dart';
+import 'package:localization_ecommerce/src/utils/async_value_ui.dart';
 
 /// Simple account screen showing some user info and a logout button.
 class AccountScreen extends ConsumerWidget {
@@ -14,16 +15,10 @@ class AccountScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen<AsyncValue<void>>(accountScreenControllerProvider,
-        (previousState, state) {
-      if (!state.isRefreshing && state.hasError) {
-        showExceptionAlertDialog(
-          context: context,
-          title: 'Error'.hardcoded,
-          exception: state.error,
-        );
-      }
-    });
+    ref.listen<AsyncValue<void>>(
+      accountScreenControllerProvider,
+      (_, state) => state.showAlertDialogOnError(context),
+    );
     final state = ref.watch(accountScreenControllerProvider);
     return Scaffold(
       appBar: AppBar(
