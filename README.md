@@ -13,7 +13,7 @@ You can see more details on
 
 ## State Management
 
-This project is using Riverpod (flutter_riverpod 2.0.0) to manage app state. 
+This project is using Riverpod (flutter_riverpod 2.0.0), a reactive caching and data-binding framework. 
 
 To know the basics, please check
 [Flutter State Management with Riverpod: The Essential Guide](https://codewithandrea.com/articles/flutter-state-management-riverpod/)
@@ -27,7 +27,7 @@ Mainly, only four class types are being used:
 
 ## Routing
 
-Routes are implemented via GoRouter, a package maitained by Google. Navigator.Pop is still being used instead of GoRouter's contet.pop(), because it can return a value (e.g. when closing OK/Cancel alert dialog) Extensible documentation can be found here
+Routes are implemented via GoRouter, a package maitained by Google. Navigator.Pop is still being used instead of GoRouter's contet.pop(), because it can return a value (e.g. when closing OK/Cancel alert dialog) Extensible documentation can be found in [GoRouter Docs](https://gorouter.dev/navigation)
 
 
 ## Localization
@@ -38,4 +38,10 @@ the `lib/src/localization` directory.
 To support additional languages, please visit the tutorial on
 [Internationalizing Flutter
 apps](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
+
+
+## Notes
+
+RxDart package is added just becouse of one method (BehaviorSubject.value), it can asynchronously show last emitted value, out of the box. Other implementations not always work right.
+
 # e-commerce
