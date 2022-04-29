@@ -1,20 +1,30 @@
 # localization_ecommerce
 
-## App architecture 
+## App Architecture 
 
-This architecture is composed of four layers (data, domain, application, presentation). Comparison with Clean Archtecture.
+This architecture is composed of four layers (data, domain, application, presentation), in comparison with Clean Archtecture.
+
+You can see more details on 
+[Flutter App Architecture with Riverpod: An Introduction](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/)
+
 
 ![Riverpod Architecture](/assets/documentation/app_architecture.jpg?raw=true "Riverpod Architecture")
-[ref: Flutter App Architecture with Riverpod: An Introduction](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/)
+
 
 ## State Management
 
-This project is using Riverpod (flutter_riverpod 2.0.0) to manage app state. Four provider types are mainly used:
--Provider
--FutureProvider
--StreamProvider
--StateNotifierProvider
+This project is using Riverpod (flutter_riverpod 2.0.0) to manage app state. 
+
+To know the basics, please check
 [Flutter State Management with Riverpod: The Essential Guide](https://codewithandrea.com/articles/flutter-state-management-riverpod/)
+
+There are mainly four provider types used:
+- Provider
+- FutureProvider
+- StreamProvider
+- StateNotifierProvider
+
+
 
 
 ## Localization
