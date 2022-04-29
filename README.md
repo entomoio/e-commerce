@@ -1,6 +1,7 @@
 # localization_ecommerce
 
-A new Flutter project.
+App architecture is composed of four layers (data, domain, application, presentation).
+![Riverpod Architecture](/assets/documentation/app_architecture.jpg?raw=true "Riverpod Architecture")
 
 ## Getting Started
 
