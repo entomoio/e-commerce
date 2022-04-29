@@ -18,7 +18,7 @@ This project is using Riverpod (flutter_riverpod 2.0.0) to manage app state.
 To know the basics, please check
 [Flutter State Management with Riverpod: The Essential Guide](https://codewithandrea.com/articles/flutter-state-management-riverpod/)
 
-There are mainly four provider types used:
+Mainly, only four class types are being used:
 - Provider
 - FutureProvider
 - StreamProvider
