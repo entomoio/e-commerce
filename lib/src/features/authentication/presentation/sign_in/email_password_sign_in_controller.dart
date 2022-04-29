@@ -28,15 +28,15 @@ class EmailPasswordSignInController
 
   void updateFormType(EmailPasswordSignInFormType formType) {
     state = state.copyWith(formType: formType);
-
-    final EmailPasswordSignInControllerProvider =
-        StateNotifierProvider.autoDispose.family<
-            EmailPasswordSignInController,
-            EmailPasswordSignInState,
-            EmailPasswordSignInFormType>((ref, formType) {
-      final authRepository = ref.watch(authRepositoryProvider);
-      return EmailPasswordSignInController(
-          formType: formType, authRepository: authRepository);
-    });
   }
 }
+
+final emailPasswordSignInControllerProvider = StateNotifierProvider.autoDispose
+    .family<EmailPasswordSignInController, EmailPasswordSignInState,
+        EmailPasswordSignInFormType>((ref, formType) {
+  final authRepository = ref.watch(authRepositoryProvider);
+  return EmailPasswordSignInController(
+    authRepository: authRepository,
+    formType: formType,
+  );
+});
