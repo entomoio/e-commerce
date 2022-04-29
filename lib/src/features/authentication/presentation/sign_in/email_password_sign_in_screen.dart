@@ -88,7 +88,6 @@ class _EmailPasswordSignInContentsState
       if (success) {
         widget.onSignedIn?.call();
       }
-      widget.onSignedIn?.call();
     }
   }
 
@@ -109,7 +108,7 @@ class _EmailPasswordSignInContentsState
   void _updateFormType(EmailPasswordSignInFormType formType) {
     // * Toggle between register and sign in form
     ref
-        .watch(emailPasswordSignInControllerProvider(widget.formType).notifier)
+        .read(emailPasswordSignInControllerProvider(widget.formType).notifier)
         .updateFormType(formType);
     // * Clear the password field when doing so
     _passwordController.clear();
