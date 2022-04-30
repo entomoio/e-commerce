@@ -15,22 +15,6 @@ class ShoppingCartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // const cartItemsListSource = [
-    //   Item(
-    //     productId: '1',
-    //     quantity: 1,
-    //   ),
-    //   Item(
-    //     productId: '2',
-    //     quantity: 2,
-    //   ),
-    //   Item(
-    //     productId: '3',
-    //     quantity: 3,
-    //   ),
-    // ];
-    // // TODO: Read from data source
-    // InPersistentStore().cartItemsList = jsonEncode(cartItemsListSource);
     // InPersistentStore().cartItemsList = '';
     final List<Item> cartItemsList = InPersistentStore().getCartList();
     return Scaffold(

@@ -32,21 +32,6 @@ class InPersistentStore {
   }
 
   set cartItemsList(String list) {
-    // const List<Item> cartItemsList = [
-    //   Item(
-    //     productId: '1',
-    //     quantity: 1,
-    //   ),
-    //   Item(
-    //     productId: '2',
-    //     quantity: 2,
-    //   ),
-    //   Item(
-    //     productId: '3',
-    //     quantity: 3,
-    //   ),
-    // ];
-
     _prefs.setString('cartItemsList', list);
   }
 
@@ -69,6 +54,18 @@ class InPersistentStore {
     } else {
       List<Item> currentList = getCartList();
       currentList.add(item);
+
+      //to only update the quantity
+      // List<Item> currentList = getCartList();
+      // int index = currentList
+      //     .indexWhere((element) => item.productId == element.productId);
+      // if (index == -1) {
+      //   currentList.add(item);
+      // } else {
+      //  currentList[index]
+      //       .copyWith(quantity: item.quantity + currentList[index].quantity);
+      // }
+
       cartItemsList = jsonEncode(currentList);
     }
   }

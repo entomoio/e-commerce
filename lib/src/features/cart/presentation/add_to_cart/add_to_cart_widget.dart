@@ -1,6 +1,4 @@
-import 'dart:math';
-
-import 'package:localization_ecommerce/src/common_widgets/alert_dialogs.dart';
+import 'package:go_router/go_router.dart';
 import 'package:localization_ecommerce/src/features/cart/domain/item.dart';
 import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +6,7 @@ import 'package:localization_ecommerce/src/common_widgets/item_quantity_selector
 import 'package:localization_ecommerce/src/common_widgets/primary_button.dart';
 import 'package:localization_ecommerce/src/constants/app_sizes.dart';
 import 'package:localization_ecommerce/src/features/products/domain/product.dart';
+import 'package:localization_ecommerce/src/routing/app_router.dart';
 import 'package:localization_ecommerce/src/utils/in_persistent_store.dart';
 
 /// A widget that shows an [ItemQuantitySelector] along with a [PrimaryButton]
@@ -23,25 +22,25 @@ class AddToCartWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text('Quantity:'.hardcoded),
-            ItemQuantitySelector(
-              // TODO: plug in state
-              quantity: 1,
-              // let the user choose up to the available quantity or
-              // 10 items at most
-              maxQuantity: min(availableQuantity, 10),
-              // TODO: Implement onChanged
-              onChanged: (value) {
-                showNotImplementedAlertDialog(context: context);
-              },
-            ),
-          ],
-        ),
-        gapH8,
+        // Row(
+        //   mainAxisSize: MainAxisSize.max,
+        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //   children: [
+        //     Text('Quantity:'.hardcoded),
+        //     ItemQuantitySelector(
+        //       // TODO: plug in state
+        //       quantity: 1,
+        //       // let the user choose up to the available quantity or
+        //       // 10 items at most
+        //       maxQuantity: min(availableQuantity, 10),
+        //       // TODO: Implement onChanged
+        //       onChanged: (value) {
+        //         showNotImplementedAlertDialog(context: context);
+        //       },
+        //     ),
+        //   ],
+        // ),
+        // gapH8,
         const Divider(),
         gapH8,
         PrimaryButton(
@@ -49,10 +48,13 @@ class AddToCartWidget extends StatelessWidget {
           isLoading: false,
           // TODO: Implement onPressed
           onPressed: () {
-            InPersistentStore().addCartItem(Item(
-              productId: product.id,
-              quantity: 1,
-            ));
+            InPersistentStore().addCartItem(
+              Item(
+                productId: product.id,
+                quantity: 1,
+              ),
+            );
+            context.pushNamed(AppRoute.cart.name);
             // showNotImplementedAlertDialog(context: context);
           },
           text: availableQuantity > 0

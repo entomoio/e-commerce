@@ -183,7 +183,7 @@
   "shoppingCartEmpty": "Your shopping cart is empty",
   "goBack": "Go Back",
   "checkout": "Checkout",
-  "pay": "Pay",
+  "receipt": "Receipt (PDF)",
   "notFound404": "404 - Page not found!",
   "goHome": "Go Home"
 }

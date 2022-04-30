@@ -18,7 +18,7 @@ class PaymentButton extends StatelessWidget {
     // TODO: error handling
     // TODO: loading state
     return PrimaryButton(
-      text: 'Pay'.hardcoded,
+      text: 'Receipt (PDF)'.hardcoded,
       isLoading: false,
       onPressed: () => _pay(context),
     );

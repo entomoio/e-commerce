@@ -13,7 +13,7 @@ class ShoppingCartIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: Read from data source
-    const cartItemsCount = 3;
+    const cartItemsCount = 0;
     return Stack(
       children: [
         Center(

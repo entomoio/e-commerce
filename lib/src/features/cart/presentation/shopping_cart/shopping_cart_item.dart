@@ -1,10 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:localization_ecommerce/src/common_widgets/alert_dialogs.dart';
 import 'package:localization_ecommerce/src/common_widgets/async_value_widget.dart';
 import 'package:localization_ecommerce/src/features/products/data/fake_products_repository.dart';
-import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/common_widgets/custom_image.dart';
 import 'package:localization_ecommerce/src/common_widgets/item_quantity_selector.dart';
@@ -87,38 +83,38 @@ class ShoppingCartItemContents extends StatelessWidget {
           gapH24,
           Text(priceFormatted, style: Theme.of(context).textTheme.headline5),
           gapH24,
-          isEditable
-              // show the quantity selector and a delete button
-              ? Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ItemQuantitySelector(
-                      quantity: item.quantity,
-                      maxQuantity: min(product.availableQuantity, 10),
-                      itemIndex: itemIndex,
-                      // TODO: Implement onChanged
-                      onChanged: (value) {
-                        showNotImplementedAlertDialog(context: context);
-                      },
-                    ),
-                    IconButton(
-                      key: deleteKey(itemIndex),
-                      icon: Icon(Icons.delete, color: Colors.red[700]),
-                      // TODO: Implement onPressed
-                      onPressed: () {
-                        showNotImplementedAlertDialog(context: context);
-                      },
-                    ),
-                    const Spacer(),
-                  ],
-                )
-              // else, show the quantity as a read-only label
-              : Padding(
-                  padding: const EdgeInsets.symmetric(vertical: Sizes.p8),
-                  child: Text(
-                    'Quantity: ${item.quantity}'.hardcoded,
-                  ),
-                ),
+          // isEditable
+          //     // show the quantity selector and a delete button
+          //     ? Row(
+          //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //         children: [
+          //           ItemQuantitySelector(
+          //             quantity: item.quantity,
+          //             maxQuantity: min(product.availableQuantity, 10),
+          //             itemIndex: itemIndex,
+          //             // TODO: Implement onChanged
+          //             onChanged: (value) {
+          //               showNotImplementedAlertDialog(context: context);
+          //             },
+          //           ),
+          //           IconButton(
+          //             key: deleteKey(itemIndex),
+          //             icon: Icon(Icons.delete, color: Colors.red[700]),
+          //             // TODO: Implement onPressed
+          //             onPressed: () {
+          //               showNotImplementedAlertDialog(context: context);
+          //             },
+          //           ),
+          //           const Spacer(),
+          //         ],
+          //       )
+          //     // else, show the quantity as a read-only label
+          //     : Padding(
+          //         padding: const EdgeInsets.symmetric(vertical: Sizes.p8),
+          //         child: Text(
+          //           'Quantity: ${item.quantity}'.hardcoded,
+          //         ),
+          //       ),
         ],
       ),
     );

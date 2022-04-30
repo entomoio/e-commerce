@@ -28,11 +28,11 @@ class MoreMenuButton extends StatelessWidget {
         // show all the options based on conditional logic
         return user != null
             ? <PopupMenuEntry<PopupMenuOption>>[
-                PopupMenuItem(
-                  key: ordersKey,
-                  child: Text('Orders'.hardcoded),
-                  value: PopupMenuOption.orders,
-                ),
+                // PopupMenuItem(
+                //   key: ordersKey,
+                //   child: Text('Orders'.hardcoded),
+                //   value: PopupMenuOption.orders,
+                // ),
                 PopupMenuItem(
                   key: accountKey,
                   child: Text('Account'.hardcoded),
@@ -54,10 +54,10 @@ class MoreMenuButton extends StatelessWidget {
             context.pushNamed(AppRoute.signIn.name);
             // context.go('/signIn');
             break;
-          case PopupMenuOption.orders:
-            context.pushNamed(AppRoute.orders.name);
-            // context.go('/orders');
-            break;
+          // case PopupMenuOption.orders:
+          //   context.pushNamed(AppRoute.orders.name);
+          //   // context.go('/orders');
+          //   break;
           case PopupMenuOption.account:
             context.pushNamed(AppRoute.account.name);
             // context.go('/account');

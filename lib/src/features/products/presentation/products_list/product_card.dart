@@ -1,8 +1,6 @@
-import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/common_widgets/custom_image.dart';
 import 'package:localization_ecommerce/src/constants/app_sizes.dart';
-import 'package:localization_ecommerce/src/features/products/presentation/product_screen/product_average_rating.dart';
 import 'package:localization_ecommerce/src/features/products/domain/product.dart';
 import 'package:localization_ecommerce/src/utils/currency_formatter.dart';
 
@@ -34,20 +32,20 @@ class ProductCard extends StatelessWidget {
               const Divider(),
               gapH8,
               Text(product.title, style: Theme.of(context).textTheme.headline6),
-              if (product.numRatings >= 1) ...[
-                gapH8,
-                ProductAverageRating(product: product),
-              ],
+              // if (product.numRatings >= 1) ...[
+              //   gapH8,
+              //   ProductAverageRating(product: product),
+              // ],
               gapH24,
               Text(priceFormatted,
                   style: Theme.of(context).textTheme.headline5),
               gapH4,
-              Text(
-                product.availableQuantity <= 0
-                    ? 'Out of Stock'.hardcoded
-                    : 'Quantity: ${product.availableQuantity}'.hardcoded,
-                style: Theme.of(context).textTheme.caption,
-              )
+              // Text(
+              //   product.availableQuantity <= 0
+              //       ? 'Out of Stock'.hardcoded
+              //       : 'Quantity: ${product.availableQuantity}'.hardcoded,
+              //   style: Theme.of(context).textTheme.caption,
+              // )
             ],
           ),
         ),

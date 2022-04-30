@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/features/checkout/presentation/payment/payment_button.dart';
 import 'package:localization_ecommerce/src/features/cart/presentation/shopping_cart/shopping_cart_item.dart';
 import 'package:localization_ecommerce/src/features/cart/presentation/shopping_cart/shopping_cart_items_builder.dart';
+import 'package:localization_ecommerce/src/utils/in_persistent_store.dart';
 
 /// Payment screen showing the items in the cart (with read-only quantities) and
 /// a button to checkout.
@@ -13,20 +14,7 @@ class PaymentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: Listen to cart changes on checkout and update the UI.
     // TODO: Read from data source
-    const cartItemsList = [
-      Item(
-        productId: '1',
-        quantity: 1,
-      ),
-      Item(
-        productId: '2',
-        quantity: 2,
-      ),
-      Item(
-        productId: '3',
-        quantity: 3,
-      ),
-    ];
+    final List<Item> cartItemsList = InPersistentStore().getCartList();
 
     return ShoppingCartItemsBuilder(
       items: cartItemsList,
