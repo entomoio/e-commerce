@@ -1,3 +1,5 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:localization_ecommerce/src/features/authentication/data/firebase_auth_repository.dart';
 import 'package:localization_ecommerce/src/features/authentication/presentation/sign_in/email_password_sign_in_state.dart';
 import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
@@ -16,14 +18,14 @@ enum CheckoutSubRoute { register, payment }
 /// The logic for the entire flow is implemented in the
 /// [CheckoutScreenController], while UI updates are handled by a
 /// [PageController].
-class CheckoutScreen extends StatefulWidget {
+class CheckoutScreen extends ConsumerStatefulWidget {
   const CheckoutScreen({Key? key}) : super(key: key);
 
   @override
   _CheckoutScreenState createState() => _CheckoutScreenState();
 }
 
-class _CheckoutScreenState extends State<CheckoutScreen> {
+class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
   final _controller = PageController();
 
   var _subRoute = CheckoutSubRoute.register;
@@ -46,6 +48,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authRepository = ref.watch(authRepositoryProvider);
+    final isLoggedIn = authRepository.currentUser != null;
+    _subRoute =
+        isLoggedIn ? CheckoutSubRoute.payment : CheckoutSubRoute.register;
+
     // map subRoute to address
     final title = _subRoute == CheckoutSubRoute.register
         ? 'Register'.hardcoded
@@ -60,11 +67,18 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         physics: const NeverScrollableScrollPhysics(),
         controller: _controller,
         children: [
-          EmailPasswordSignInContents(
-            formType: EmailPasswordSignInFormType.register,
-            onSignedIn: _onSignedIn,
-          ),
-          const PaymentPage()
+          isLoggedIn
+              ? const PaymentPage()
+              : EmailPasswordSignInContents(
+                  formType: EmailPasswordSignInFormType.register,
+                  onSignedIn: _onSignedIn,
+                ),
+          !isLoggedIn
+              ? EmailPasswordSignInContents(
+                  formType: EmailPasswordSignInFormType.register,
+                  onSignedIn: _onSignedIn,
+                )
+              : const PaymentPage(),
         ],
       ),
     );

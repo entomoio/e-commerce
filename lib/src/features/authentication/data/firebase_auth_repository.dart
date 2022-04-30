@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localization_ecommerce/src/features/authentication/domain/app_user.dart';
 import 'package:localization_ecommerce/src/utils/in_memory_store.dart';
@@ -34,9 +33,7 @@ class FirebaseAuthRepository {
       email: email,
       password: password,
     );
-    debugPrint(currentUser.toString());
-    debugPrint(email);
-    debugPrint(userCredential.user?.uid);
+
     if (currentUser == null) {
       _createNewUser(email, userCredential.user?.uid);
     }
@@ -53,8 +50,6 @@ class FirebaseAuthRepository {
 
   void _createNewUser(String email, String? uid) {
     _authState.value = AppUser(uid: uid ?? '', email: email);
-    debugPrint(_authState.value?.email ?? 'null');
-    debugPrint(_authState.value?.uid ?? 'null');
   }
 }
 
