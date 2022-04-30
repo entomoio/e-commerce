@@ -2,13 +2,13 @@
 
 ## App Architecture 
 
-This architecture is composed of four layers (data, domain, application, presentation), in comparison with Clean Archtecture.
-
-You can see more details on 
-[Flutter App Architecture with Riverpod: An Introduction](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/)
-
+This architecture is composed of four layers (data, domain, application, presentation). The following image compares it with Clean Archtecture.
 
 ![Riverpod Architecture](/assets/documentation/app_architecture.jpg?raw=true "Riverpod Architecture")
+
+More details on 
+[Flutter App Architecture with Riverpod: An Introduction](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/)
+
 
 
 ## State Management
@@ -27,7 +27,7 @@ Mainly, only four class types are being used:
 
 ## Routing
 
-Routes are implemented via GoRouter, a package maitained by Google. Navigator.Pop is still being used instead of GoRouter's contet.pop(), because it can return a value (e.g. when closing OK/Cancel alert dialog) Extensible documentation can be found in [GoRouter Docs](https://gorouter.dev/navigation)
+Routes are implemented via GoRouter, a package maitained by Google. Navigator.Pop is still being used instead of GoRouter's contet.pop(), because it can return a value (e.g. when closing OK/Cancel alert dialog). Extensible documentation can be found in [GoRouter Docs](https://gorouter.dev/navigation)
 
 
 ## Localization
@@ -42,6 +42,6 @@ apps](https://flutter.dev/docs/development/accessibility-and-localization/intern
 
 ## Notes
 
-RxDart package is added just becouse of one method (BehaviorSubject.value), it can asynchronously show last emitted value, out of the box. Other implementations not always work right.
+RxDart package is added just because of one method (BehaviorSubject.value), that can asynchronously show last emitted stream value, out of the box. Other implementations not always work correctly.
 
 # e-commerce
