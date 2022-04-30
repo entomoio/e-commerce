@@ -1,7 +1,7 @@
-import 'package:localization_ecommerce/src/common_widgets/alert_dialogs.dart';
 import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/common_widgets/primary_button.dart';
+import 'package:localization_ecommerce/src/utils/in_persistent_store.dart';
 
 /// Button used to initiate the payment flow.
 class PaymentButton extends StatelessWidget {
@@ -9,7 +9,8 @@ class PaymentButton extends StatelessWidget {
 
   Future<void> _pay(BuildContext context) async {
     // TODO: Implement
-    showNotImplementedAlertDialog(context: context);
+    // showNotImplementedAlertDialog(context: context);
+    InPersistentStore().cartItemsList = '';
   }
 
   @override

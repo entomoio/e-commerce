@@ -10,7 +10,7 @@ import 'package:localization_ecommerce/src/common_widgets/responsive_two_column_
 import 'package:localization_ecommerce/src/constants/app_sizes.dart';
 import 'package:localization_ecommerce/src/features/products/presentation/home_app_bar/home_app_bar.dart';
 import 'package:localization_ecommerce/src/common_widgets/empty_placeholder_widget.dart';
-import 'package:localization_ecommerce/src/features/cart/domain/presentation/add_to_cart/add_to_cart_widget.dart';
+import 'package:localization_ecommerce/src/features/cart/presentation/add_to_cart/add_to_cart_widget.dart';
 import 'package:localization_ecommerce/src/features/products/presentation/product_screen/leave_review_action.dart';
 import 'package:localization_ecommerce/src/features/products/presentation/product_screen/product_average_rating.dart';
 import 'package:localization_ecommerce/src/features/reviews/presentation/product_reviews/product_reviews_list.dart';

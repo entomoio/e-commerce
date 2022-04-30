@@ -1,7 +1,7 @@
 import 'package:localization_ecommerce/src/constants/breakpoints.dart';
 import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
-import 'package:localization_ecommerce/src/features/cart/domain/presentation/cart_total/cart_total_with_cta.dart';
+import 'package:localization_ecommerce/src/features/cart/presentation/cart_total/cart_total_with_cta.dart';
 import 'package:localization_ecommerce/src/common_widgets/decorated_box_with_shadow.dart';
 import 'package:localization_ecommerce/src/common_widgets/responsive_center.dart';
 import 'package:localization_ecommerce/src/constants/app_sizes.dart';

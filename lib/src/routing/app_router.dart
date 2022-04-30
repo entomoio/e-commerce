@@ -7,7 +7,7 @@ import 'package:localization_ecommerce/src/routing/not_found_screen.dart';
 import 'package:localization_ecommerce/src/features/orders/presentation/orders_list/orders_list_screen.dart';
 import 'package:localization_ecommerce/src/features/products/presentation/product_screen/product_screen.dart';
 import 'package:localization_ecommerce/src/features/products/presentation/products_list/products_list_screen.dart';
-import 'package:localization_ecommerce/src/features/cart/domain/presentation/shopping_cart/shopping_cart_screen.dart';
+import 'package:localization_ecommerce/src/features/cart/presentation/shopping_cart/shopping_cart_screen.dart';
 import 'package:localization_ecommerce/src/features/authentication/presentation/sign_in/email_password_sign_in_screen.dart';
 import 'package:localization_ecommerce/src/features/authentication/presentation/sign_in/email_password_sign_in_state.dart';
 import 'package:flutter/material.dart';

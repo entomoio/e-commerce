@@ -1,7 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
 import 'package:localization_ecommerce/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:localization_ecommerce/src/features/authentication/domain/app_user.dart';
 import 'package:go_router/go_router.dart';
 
 enum PopupMenuOption {
@@ -12,7 +12,7 @@ enum PopupMenuOption {
 
 class MoreMenuButton extends StatelessWidget {
   const MoreMenuButton({Key? key, this.user}) : super(key: key);
-  final AppUser? user;
+  final User? user;
 
   // * Keys for testing using find.byKey()
   static const signInKey = Key('menuSignIn');
