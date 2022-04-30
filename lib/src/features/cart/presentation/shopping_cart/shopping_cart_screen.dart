@@ -31,7 +31,7 @@ class ShoppingCartScreen extends StatelessWidget {
     // ];
     // // TODO: Read from data source
     // InPersistentStore().cartItemsList = jsonEncode(cartItemsListSource);
-
+    // InPersistentStore().cartItemsList = '';
     final List<Item> cartItemsList = InPersistentStore().getCartList();
     return Scaffold(
       appBar: AppBar(

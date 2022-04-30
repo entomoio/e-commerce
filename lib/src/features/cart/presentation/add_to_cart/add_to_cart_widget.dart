@@ -1,12 +1,14 @@
 import 'dart:math';
 
 import 'package:localization_ecommerce/src/common_widgets/alert_dialogs.dart';
+import 'package:localization_ecommerce/src/features/cart/domain/item.dart';
 import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
 import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/common_widgets/item_quantity_selector.dart';
 import 'package:localization_ecommerce/src/common_widgets/primary_button.dart';
 import 'package:localization_ecommerce/src/constants/app_sizes.dart';
 import 'package:localization_ecommerce/src/features/products/domain/product.dart';
+import 'package:localization_ecommerce/src/utils/in_persistent_store.dart';
 
 /// A widget that shows an [ItemQuantitySelector] along with a [PrimaryButton]
 /// to add the selected quantity of the item to the cart.
@@ -47,7 +49,11 @@ class AddToCartWidget extends StatelessWidget {
           isLoading: false,
           // TODO: Implement onPressed
           onPressed: () {
-            showNotImplementedAlertDialog(context: context);
+            InPersistentStore().addCartItem(Item(
+              productId: product.id,
+              quantity: 1,
+            ));
+            // showNotImplementedAlertDialog(context: context);
           },
           text: availableQuantity > 0
               ? 'Add to Cart'.hardcoded

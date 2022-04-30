@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:localization_ecommerce/src/utils/in_persistent_store.dart';
 
 import 'src/app.dart';
 // import 'src/settings/settings_controller.dart';
@@ -13,8 +13,11 @@ import 'package:go_router/go_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final sharedPreferences = await SharedPreferences.getInstance();
-  FirebaseApp defaultApp = await Firebase.initializeApp(
+  // final sharedPreferences = await SharedPreferences.getInstance();
+  await InPersistentStore().init();
+
+  //firebase (web credentials)
+  await Firebase.initializeApp(
     options: const FirebaseOptions(
       apiKey: "AIzaSyAp7_vjyywMkKgEC9Od4LIe9fkU6NqN1Vc",
       appId: "1:96583856315:web:e56c413d5f5c98d77bf99e",
