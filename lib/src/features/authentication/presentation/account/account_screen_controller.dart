@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:localization_ecommerce/src/features/authentication/data/fake_auth_repository.dart';
+import 'package:localization_ecommerce/src/features/authentication/data/firebase_auth_repository.dart';
 
 class AccountScreenController extends StateNotifier<AsyncValue<void>> {
   AccountScreenController({required this.authRepository})
       : super(const AsyncValue.data(null));
-  final FakeAuthRepository authRepository;
+  final FirebaseAuthRepository authRepository;
 
   Future<void> signOut() async {
     //set state to loading

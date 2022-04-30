@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localization_ecommerce/src/constants/breakpoints.dart';
-import 'package:localization_ecommerce/src/features/authentication/data/fake_auth_repository.dart';
+import 'package:localization_ecommerce/src/features/authentication/data/firebase_auth_repository.dart';
 import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
 import 'package:localization_ecommerce/src/routing/app_router.dart';
 import 'package:flutter/material.dart';

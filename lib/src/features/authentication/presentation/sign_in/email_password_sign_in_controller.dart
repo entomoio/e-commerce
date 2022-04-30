@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:localization_ecommerce/src/features/authentication/data/fake_auth_repository.dart';
+import 'package:localization_ecommerce/src/features/authentication/data/firebase_auth_repository.dart';
 import 'package:localization_ecommerce/src/features/authentication/presentation/sign_in/email_password_sign_in_state.dart';
 
 class EmailPasswordSignInController
@@ -8,7 +8,7 @@ class EmailPasswordSignInController
       {required EmailPasswordSignInFormType formType,
       required this.authRepository})
       : super(EmailPasswordSignInState(formType: formType));
-  final FakeAuthRepository authRepository;
+  final FirebaseAuthRepository authRepository;
 
   Future<bool> submit(String email, String password) async {
     state = state.copyWith(value: const AsyncValue.loading());

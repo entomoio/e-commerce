@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -13,9 +14,18 @@ import 'package:go_router/go_router.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final sharedPreferences = await SharedPreferences.getInstance();
-  //this will make appBar red and print the error on screen
+  FirebaseApp defaultApp = await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: "AIzaSyAp7_vjyywMkKgEC9Od4LIe9fkU6NqN1Vc",
+      appId: "1:96583856315:web:e56c413d5f5c98d77bf99e",
+      messagingSenderId: "96583856315",
+      projectId: "fi-base",
+    ),
+  );
+
   // * For more info on error handling, see:
   // * https://docs.flutter.dev/testing/errors
+  //this will make appBar red and print the error on screen
   await runZonedGuarded(() async {
     // Set up the SettingsController, which will glue user settings to multiple
     // Flutter Widgets.
