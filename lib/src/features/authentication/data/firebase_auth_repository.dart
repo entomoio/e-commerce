@@ -7,12 +7,12 @@ class FirebaseAuthRepository {
   final _authState = InMemoryStore<AppUser?>(null);
   final _firebaseAuth = FirebaseAuth.instance;
 
-  Stream<AppUser?> authStateChanges() => _authState.stream;
-  // Stream<User?> authStateChanges() => _firebaseAuth.authStateChanges();
+  // Stream<AppUser?> authStateChanges() => _authState.stream;
+  Stream<User?> authStateChanges() => _firebaseAuth.authStateChanges();
   // Stream.value(null);
 
-  // User? get currentUser => _firebaseAuth.currentUser;
-  AppUser? get currentUser => _authState.value;
+  User? get currentUser => _firebaseAuth.currentUser;
+  // AppUser? get currentUser => _authState.value;
 
   Future<void> signInWithEmailAndPassword(String email, String password) async {
     UserCredential userCredential = await _firebaseAuth.signInWithCredential(
@@ -59,7 +59,7 @@ final authRepositoryProvider = Provider<FirebaseAuthRepository>((ref) {
   return auth;
 });
 
-final authStateChangeProvider = StreamProvider.autoDispose<AppUser?>((ref) {
+final authStateChangeProvider = StreamProvider.autoDispose<User?>((ref) {
   final authRepository = ref.watch(authRepositoryProvider);
   return authRepository.authStateChanges();
 });
