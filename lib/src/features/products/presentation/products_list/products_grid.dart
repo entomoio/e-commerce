@@ -3,8 +3,9 @@ import 'dart:math';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localization_ecommerce/src/common_widgets/async_value_widget.dart';
 import 'package:localization_ecommerce/src/features/products/data/fake_products_repository.dart';
+import 'package:localization_ecommerce/src/features/products/data/fake_search_repository.dart';
 import 'package:localization_ecommerce/src/features/products/domain/product.dart';
-import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
+import 'package:localization_ecommerce/src/localization/app_localizations_context.dart';
 import 'package:localization_ecommerce/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_layout_grid/flutter_layout_grid.dart';
@@ -14,17 +15,23 @@ import 'package:go_router/go_router.dart';
 
 /// A widget that displays the list of products that match the search query.
 class ProductsGrid extends ConsumerWidget {
-  const ProductsGrid({Key? key}) : super(key: key);
+  const ProductsGrid(
+      {Key? key, required this.titleQuery, required this.searchRepository})
+      : super(key: key);
+  final String titleQuery;
+  final FakeSearchRepository searchRepository;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final productsListValue = ref.watch(productsListStreamProvider);
+    final productsListValue = ref.watch(searchProductsProvider(titleQuery));
+    // final productsListValue = ref.watch(productsListStreamProvider);
+
     return AsyncValueWidget<List<Product>>(
       value: productsListValue,
       data: (products) => products.isEmpty
           ? Center(
               child: Text(
-                'No products found'.hardcoded,
+                context.loc.noProductsFound,
                 style: Theme.of(context).textTheme.headline4,
               ),
             )

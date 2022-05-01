@@ -17,11 +17,18 @@ class FakeProductsRepository {
     return _products;
   }
 
+  Stream<List<Product>> searchProducts(String title) async* {
+    yield _products
+        .where((product) =>
+            product.title.toLowerCase().contains(title.toLowerCase()))
+        .toList();
+  }
+
   Product? getProduct(String id) {
     return _products.firstWhere((product) => product.id == id);
   }
 
-//REST API
+//to use with REST APIs
   Future<List<Product>> fetchProductsList() async {
     // await Future.delayed(const Duration(milliseconds: 500));
     // throw Exception('Connection problems');
@@ -70,4 +77,12 @@ final productProvider = StreamProvider.autoDispose.family<Product?, String>(
   },
   // disposeDelay: const Duration(seconds: 5),
   // cacheTime: const Duration(seconds: 5),
+);
+
+final searchProductsProvider =
+    StreamProvider.autoDispose.family<List<Product>, String>(
+  (ref, title) {
+    final productsRepository = ref.watch(productsRepositoryProvider);
+    return productsRepository.searchProducts(title);
+  },
 );

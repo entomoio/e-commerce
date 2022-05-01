@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localization_ecommerce/src/common_widgets/async_value_widget.dart';
 import 'package:localization_ecommerce/src/features/products/data/fake_products_repository.dart';
-import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
+import 'package:localization_ecommerce/src/localization/app_localizations_context.dart';
 import 'package:localization_ecommerce/src/utils/currency_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/common_widgets/custom_image.dart';
@@ -30,7 +30,7 @@ class ProductScreen extends StatelessWidget {
             value: productValue,
             data: (product) => product == null
                 ? EmptyPlaceholderWidget(
-                    message: 'Product not found'.hardcoded,
+                    message: context.loc.productNotFound,
                   )
                 : CustomScrollView(
                     slivers: [

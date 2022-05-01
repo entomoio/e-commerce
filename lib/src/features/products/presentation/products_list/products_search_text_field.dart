@@ -1,10 +1,12 @@
+import 'package:localization_ecommerce/src/features/products/data/fake_search_repository.dart';
 import 'package:localization_ecommerce/src/localization/app_localizations_context.dart';
 import 'package:flutter/material.dart';
 
 /// Search field used to filter products by name
 class ProductsSearchTextField extends StatefulWidget {
-  const ProductsSearchTextField({Key? key}) : super(key: key);
-
+  const ProductsSearchTextField({Key? key, required this.searchRepository})
+      : super(key: key);
+  final FakeSearchRepository searchRepository;
   @override
   State<ProductsSearchTextField> createState() =>
       _ProductsSearchTextFieldState();
@@ -39,14 +41,15 @@ class _ProductsSearchTextFieldState extends State<ProductsSearchTextField> {
                 ? IconButton(
                     onPressed: () {
                       _controller.clear();
-                      // TODO: Clear search state
+                      widget.searchRepository.clearSearch();
                     },
                     icon: const Icon(Icons.clear),
                   )
                 : null,
           ),
-          // TODO: Implement onChanged
-          onChanged: null,
+          onChanged: (query) {
+            widget.searchRepository.createSearch(query);
+          },
         );
       },
     );
