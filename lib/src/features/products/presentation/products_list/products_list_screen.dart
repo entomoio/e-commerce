@@ -6,7 +6,7 @@ import 'package:localization_ecommerce/src/features/products/presentation/home_a
 import 'package:localization_ecommerce/src/features/products/presentation/products_list/products_grid.dart';
 import 'package:localization_ecommerce/src/features/products/presentation/products_list/products_search_text_field.dart';
 
-import '../../data/fake_search_repository.dart';
+import '../../data/fake_search_engine.dart';
 
 /// Shows the list of products with a search field at the top.
 class ProductsListScreen extends StatefulWidget {
@@ -49,21 +49,22 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
       appBar: const HomeAppBar(),
       body: Consumer(
         builder: (context, ref, _) {
-          final searchRepository = ref.watch(searchRepositoryProvider);
-          final query = searchRepository.currentQuery;
+          final searchEngine = ref.watch(searchEngineProvider);
+          final query = searchEngine.queryHistory;
           return CustomScrollView(
             controller: _scrollController,
             slivers: [
               ResponsiveSliverCenter(
                 padding: const EdgeInsets.all(Sizes.p16),
                 child: ProductsSearchTextField(
-                  searchRepository: searchRepository,
+                  searchEngine: searchEngine,
                 ),
               ),
               ResponsiveSliverCenter(
                 padding: const EdgeInsets.all(Sizes.p16),
                 child: ProductsGrid(
-                  searchRepository: searchRepository,
+                  searchEngine: searchEngine,
+                  currentQuery: searchEngine.currentQuery,
                   titleQuery: query ?? '',
                 ),
               ),

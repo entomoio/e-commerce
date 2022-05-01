@@ -1,10 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localization_ecommerce/src/utils/in_memory_store.dart';
 
-class FakeSearchRepository {
+class FakeSearchEngine {
   final _searchState = InMemoryStore<String?>('');
-
-  String? get currentQuery => _searchState.value;
+  Stream<String?> authStateChanges() => _searchState.stream;
+  String? get queryHistory => _searchState.value;
+  Stream<String?> get currentQuery => _searchState.stream;
 
   Future<void> createSearch(String query) async {
     // await Future.delayed(const Duration(seconds: 1));
@@ -24,8 +25,13 @@ class FakeSearchRepository {
   }
 }
 
-final searchRepositoryProvider = Provider<FakeSearchRepository>((ref) {
-  final search = FakeSearchRepository();
+final searchEngineProvider = Provider<FakeSearchEngine>((ref) {
+  final search = FakeSearchEngine();
   ref.onDispose(() => search.dispose());
   return search;
+});
+
+final searchStateChangeProvider = StreamProvider.autoDispose<String?>((ref) {
+  final searchEngine = ref.watch(searchEngineProvider);
+  return searchEngine.authStateChanges();
 });
