@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localization_ecommerce/src/constants/breakpoints.dart';
 import 'package:localization_ecommerce/src/features/authentication/data/firebase_auth_repository.dart';
-import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
+import 'package:localization_ecommerce/src/localization/app_localizations_context.dart';
 import 'package:localization_ecommerce/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/common_widgets/action_text_button.dart';
@@ -31,7 +31,7 @@ class HomeAppBar extends ConsumerWidget with PreferredSizeWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     if (screenWidth < Breakpoint.tablet) {
       return AppBar(
-        title: Text('My Shop'.hardcoded),
+        title: Text(context.loc.appBarTile),
         actions: [
           const ShoppingCartIcon(),
           MoreMenuButton(user: user),
@@ -39,7 +39,7 @@ class HomeAppBar extends ConsumerWidget with PreferredSizeWidget {
       );
     } else {
       return AppBar(
-        title: Text('My Shop'.hardcoded),
+        title: Text(context.loc.appBarTile),
         actions: [
           const ShoppingCartIcon(),
           if (user != null) ...[
@@ -51,14 +51,14 @@ class HomeAppBar extends ConsumerWidget with PreferredSizeWidget {
             // ),
             ActionTextButton(
               key: MoreMenuButton.accountKey,
-              text: 'Account'.hardcoded,
+              text: context.loc.account,
               onPressed: () => context.pushNamed(AppRoute.account.name),
               // onPressed: () => context.go('/account'),
             ),
           ] else
             ActionTextButton(
               key: MoreMenuButton.signInKey,
-              text: 'Sign In'.hardcoded,
+              text: context.loc.signin,
               onPressed: () => context.pushNamed(AppRoute.signIn.name),
               // onPressed: () => context.go('/signIn'),
             )

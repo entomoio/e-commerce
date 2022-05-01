@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
+import 'package:localization_ecommerce/src/localization/app_localizations_context.dart';
 import 'package:localization_ecommerce/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -35,14 +35,14 @@ class MoreMenuButton extends StatelessWidget {
                 // ),
                 PopupMenuItem(
                   key: accountKey,
-                  child: Text('Account'.hardcoded),
+                  child: Text(context.loc.account),
                   value: PopupMenuOption.account,
                 ),
               ]
             : <PopupMenuEntry<PopupMenuOption>>[
                 PopupMenuItem(
                   key: signInKey,
-                  child: Text('Sign In'.hardcoded),
+                  child: Text(context.loc.signin),
                   value: PopupMenuOption.signIn,
                 ),
               ];

@@ -1,4 +1,4 @@
-import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
+import 'package:localization_ecommerce/src/localization/app_localizations_context.dart';
 import 'package:localization_ecommerce/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/common_widgets/primary_button.dart';
@@ -28,7 +28,7 @@ class EmptyPlaceholderWidget extends StatelessWidget {
             gapH32,
             PrimaryButton(
               onPressed: () => context.goNamed(AppRoute.home.name),
-              text: 'Go Home'.hardcoded,
+              text: context.loc.goHome,
             )
           ],
         ),

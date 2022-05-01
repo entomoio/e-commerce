@@ -9,6 +9,7 @@
   },
   "ok": "OK",
   "anErrorOccurred": "An error occurred",
+  "notImplemented": "Not implemented",
   "orders": "Orders",
   "account": "Account",
   "admin": "Admin",
@@ -24,19 +25,18 @@
   "haveAnAccount": "Have an account? Sign in",
   "signInFailed": "Sign in failed",
   "registrationFailed": "Registration failed",
-  "passwordResetFailed": "Password reset failed",
   "sendResetLink": "Send reset link",
   "backToSignIn": "Back to sign in",
-  "resetLinkSentTitle": "Reset link sent",
-  "resetLinkSentMessage": "Check your email to reset your password",
   "emailLabel": "Email",
   "emailHint": "test@test.com",
-  "password8CharactersLabel": "Password (8+ characters)",
+  "password8CharactersLabel": "Password (8 or more characters)",
   "passwordLabel": "Password",
   "invalidEmailEmpty": "Email can't be empty",
   "invalidPasswordTooShort": "Password is too short",
   "invalidPasswordEmpty": "Password can't be empty",
   "logout": "Logout",
+  "areYouSure": "Are you sure?",
+  "cancel": "Cancel",
   "submit": "Submit",
   "invalidEmail": "Invalid email",
   "emailAlreadyInUse": "Email already in use",
@@ -56,72 +56,20 @@
       }
     }
   },
-  "leaveReview": "Leave a review",
-  "yourReviewHint": "Your review (optional)",
-  "previouslyReviewedHint": "You reviewed this product before. You can edit your review.",
-  "numRatings": "({count, plural, =1{1 rating} other{{count} ratings}})",
-  "@numRatings": {
-    "description": "The number of ratings",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "address": "Address",
-  "@address": {
-    "description": "Title of the address page"
-  },
-  "townCity": "Town/City",
-  "state": "State",
-  "postalCode": "Postal Code",
-  "country": "Country",
-  "cantBeEmpty": "Can't be empty",
-  "@cantBeEmpty": {
-    "description": "Message for product fields that can't be empty"
-  },
   "invalidUrl": "Not a valid URL",
-  "minimumLength20Chars": "Minimum length: 20 characters",
-  "invalidNumber": "Not a valid number",
-  "priceGreaterThanZero": "Price must be greater than zero",
-  "priceLessThanMax": "The maximum price must be less than $100,000",
-  "quantityGreaterThanZero": "Quantity must be zero or more",
-  "quantityLessThanMax": "The maximum quantity must be less than 1,000",
   "field": "Field",
-  "@field": {
-    "description": "Field label used in account page"
-  },
   "value": "Value",
   "uidLowercase": "uid",
   "emailLowercase": "email",
   "isAdminLowercase": "isAdmin",
-  "adminDashboard": "Admin Dashboard",
-  "@adminDashboard": {
-    "description": "Admin Dashboard page title"
-  },
-  "manageOrders": "Manage Orders",
-  "userId": "User ID",
-  "userEmail": "User Email",
-  "newProduct": "New Product",
-  "editProduct": "Edit Product",
-  "productUpdated": "Product updated",
-  "couldNotSaveProduct": "Could not save product data",
-  "couldNotUpdateOrderStatus": "Could not update order status",
-  "imageUrl": "Image URL",
   "title": "Title",
   "description": "Description",
   "price": "Price",
   "availableQuantity": "Available Quantity",
-  "manageProducts": "Manage Products",
   "payment": "Payment",
   "@payment": {
     "description": "Payment page title"
   },
-  "cardPayment": "Card Payment",
-  "saveCardDuringPayment": "Save card during payment",
-  "devBuildTestingNotice": "[DEV build] Use 4242 4242 4242 4242 for testing",
-  "missingAddress": "The operation can't be completed (missing address)",
-  "userNotSignedIn": "The operation can't be completed (not signed in)",
   "orderPlaced": "Order placed",
   "total": "Total",
   "totalValue": "Total: {value}",

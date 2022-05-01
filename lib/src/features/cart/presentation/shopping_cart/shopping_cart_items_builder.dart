@@ -1,5 +1,5 @@
 import 'package:localization_ecommerce/src/constants/breakpoints.dart';
-import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
+import 'package:localization_ecommerce/src/localization/app_localizations_context.dart';
 import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/features/cart/presentation/cart_total/cart_total_with_cta.dart';
 import 'package:localization_ecommerce/src/common_widgets/decorated_box_with_shadow.dart';
@@ -25,7 +25,7 @@ class ShoppingCartItemsBuilder extends StatelessWidget {
     // If there are no items, show a placeholder
     if (items.isEmpty) {
       return EmptyPlaceholderWidget(
-        message: 'Your shopping cart is empty'.hardcoded,
+        message: context.loc.shoppingCartEmpty,
       );
     }
     // ! MediaQuery is used on the assumption that the widget takes up the full

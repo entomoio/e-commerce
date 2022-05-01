@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
+import 'package:localization_ecommerce/src/localization/app_localizations_context.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:localization_ecommerce/src/common_widgets/custom_text_button.dart';
@@ -26,7 +26,7 @@ class EmailPasswordSignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Sign In'.hardcoded)),
+      appBar: AppBar(title: Text(context.loc.signin)),
       body: EmailPasswordSignInContents(
         formType: formType,
         // onSignedIn: () => Navigator.of(context).pop(), //goRouter refreshListenable triggers redirect to the home page
@@ -136,8 +136,8 @@ class _EmailPasswordSignInContentsState
                 key: EmailPasswordSignInScreen.emailKey,
                 controller: _emailController,
                 decoration: InputDecoration(
-                  labelText: 'Email'.hardcoded,
-                  hintText: 'test@test.com'.hardcoded,
+                  labelText: context.loc.emailLabel,
+                  hintText: context.loc.emailHint,
                   enabled: !state.isLoading,
                 ),
                 autovalidateMode: AutovalidateMode.onUserInteraction,

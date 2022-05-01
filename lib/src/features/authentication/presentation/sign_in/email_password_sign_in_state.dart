@@ -66,6 +66,7 @@ extension EmailPasswordSignInStateX on EmailPasswordSignInState {
   // Getters
   String get primaryButtonText {
     if (formType == EmailPasswordSignInFormType.register) {
+      // return (BuildContext context) =>  context.loc.createAnAccount;
       return 'Create an account'.hardcoded;
     } else {
       return 'Sign in'.hardcoded;

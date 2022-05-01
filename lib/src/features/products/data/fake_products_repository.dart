@@ -23,7 +23,7 @@ class FakeProductsRepository {
 
 //REST API
   Future<List<Product>> fetchProductsList() async {
-    await Future.delayed(const Duration(milliseconds: 500));
+    // await Future.delayed(const Duration(milliseconds: 500));
     // throw Exception('Connection problems');
     return Future.value(_products);
   }
@@ -31,7 +31,7 @@ class FakeProductsRepository {
 //realtime API (websockets, Firebase)
   Stream<List<Product>> watchProductsList() async* {
     //async* converts this to a stream generator
-    await Future.delayed(const Duration(milliseconds: 500));
+    await Future.delayed(const Duration(milliseconds: 100));
     // return Stream.value(_products);
     yield _products;
   }

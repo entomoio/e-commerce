@@ -1,4 +1,4 @@
-import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
+import 'package:localization_ecommerce/src/localization/app_localizations_context.dart';
 import 'package:flutter/material.dart';
 
 /// Search field used to filter products by name
@@ -33,7 +33,7 @@ class _ProductsSearchTextFieldState extends State<ProductsSearchTextField> {
           autofocus: false,
           style: Theme.of(context).textTheme.headline6,
           decoration: InputDecoration(
-            hintText: 'Search products'.hardcoded,
+            hintText: context.loc.searchProducts,
             icon: const Icon(Icons.search),
             suffixIcon: value.text.isNotEmpty
                 ? IconButton(

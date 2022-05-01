@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localization_ecommerce/src/features/authentication/data/firebase_auth_repository.dart';
 import 'package:localization_ecommerce/src/features/authentication/presentation/sign_in/email_password_sign_in_state.dart';
-import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
+import 'package:localization_ecommerce/src/localization/app_localizations_context.dart';
 import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/features/checkout/presentation/payment/payment_page.dart';
 import 'package:localization_ecommerce/src/features/authentication/presentation/sign_in/email_password_sign_in_screen.dart';
@@ -55,8 +55,8 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
 
     // map subRoute to address
     final title = _subRoute == CheckoutSubRoute.register
-        ? 'Register'.hardcoded
-        : 'Payment'.hardcoded;
+        ? context.loc.register
+        : context.loc.payment;
     // * Return a Scaffold with a PageView containing the 2 pages.
     // * This allows for a nice scroll animation when switching between pages.
     // * Note: only the currently active page will be visible.

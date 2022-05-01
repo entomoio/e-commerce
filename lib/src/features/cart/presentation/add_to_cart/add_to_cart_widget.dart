@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:localization_ecommerce/src/features/cart/domain/item.dart';
-import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
+import 'package:localization_ecommerce/src/localization/app_localizations_context.dart';
 import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/common_widgets/item_quantity_selector.dart';
 import 'package:localization_ecommerce/src/common_widgets/primary_button.dart';
@@ -58,13 +58,13 @@ class AddToCartWidget extends StatelessWidget {
             // showNotImplementedAlertDialog(context: context);
           },
           text: availableQuantity > 0
-              ? 'Add to Cart'.hardcoded
-              : 'Out of Stock'.hardcoded,
+              ? context.loc.addToCart
+              : context.loc.outOfStock,
         ),
         if (product.availableQuantity > 0 && availableQuantity == 0) ...[
           gapH8,
           Text(
-            'Already added to cart'.hardcoded,
+            context.loc.alreadyAddedToCart,
             style: Theme.of(context).textTheme.caption,
             textAlign: TextAlign.center,
           ),

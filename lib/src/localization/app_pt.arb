@@ -1,0 +1,140 @@
+{
+  "appTitle": "e-commerce intl",
+  "@appTitle": {
+    "description": "app from skeleton template"
+  },
+  "appBarTile": "Meu E-Commerce",
+  "@appBarTitle": {
+    "description": "o título mostrado na barra de menu"
+  },
+  "ok": "OK",
+  "anErrorOccurred": "Ops, ocorreu um erro!",
+  "notImplemented": "Não implementado",
+  "orders": "Orders",
+  "account": "Conta",
+  "admin": "Admin",
+  "signin": "Autenticar",
+  "@signin": {
+    "description": "título na página de login"
+  },
+  "register": "Autenticar",
+  "@register": {
+    "description": "título na página de cadastro"
+  },
+  "forgotPassword": "Esqueci a senha",
+  "forgotPasswordQuestion": "Esqueceu a senha?",
+  "createAnAccount": "Criar uma conta",
+  "needAnAccount": "Precisa de uma conta? Cria",
+  "haveAnAccount": "Já tem uma conta? Entre",
+  "signInFailed": "Falha ao entrar",
+  "registrationFailed": "Falha ao criar conta",
+  "sendResetLink": "Send reset link",
+  "backToSignIn": "Voltar ao login",
+  "emailLabel": "Email",
+  "emailHint": "seu@email.com.br",
+  "password8CharactersLabel": "Senha (8 ou mais caracteres)",
+  "passwordLabel": "Senha",
+  "invalidEmailEmpty": "O email não pode ficar em branco",
+  "invalidPasswordTooShort": "A senha é muito curta",
+  "invalidPasswordEmpty": "A senha não pode ficar em branco",
+  "logout": "Sair",
+  "areYouSure": "Confirma?",
+  "cancel": "Cancel",
+  "submit": "Enviar",
+  "invalidEmail": "Email inválido",
+  "emailAlreadyInUse": "Email já cadastrado",
+  "weakPassword": "A senha é muito fraca",
+  "operationNotAllowed": "Operação não permitida",
+  "wrongPassword": "Senha incorreta",
+  "userNotFound": "Usuário não cadastrado",
+  "userDisabled": "Usuário desativado",
+  "tooManyAuthRequests": "Esta conta foi bloqueada temporariamente devido a muitas tentativas inválidas. Por favor, tente novamente mais tarde.",
+  "permissionDenied": "Permissão negada",
+  "purchasedOnDate": "Comprado em {date}",
+  "@purchasedOnDate": {
+    "description": "quando o produto foi comprado",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "invalidUrl": "URL inválida",
+  "field": "Chave",
+  "value": "Valor",
+  "uidLowercase": "uid",
+  "emailLowercase": "email",
+  "isAdminLowercase": "isAdmin",
+  "title": "Título",
+  "description": "Descrição",
+  "price": "Preço",
+  "availableQuantity": "Quantidade Disponível",
+  "payment": "Pagamento",
+  "@payment": {
+    "description": "título da página de pagamento"
+  },
+  "orderPlaced": "Pedido realizado",
+  "total": "Total",
+  "totalValue": "Total: {value}",
+  "@totalValue": {
+    "description": "O valor total do carrinho de compras",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "yourOrders": "Suas Compras",
+  "@yourOrders": {
+    "description": "título na página de compras"
+  },
+  "noPreviousOrders": "Sem compras anteriores",
+  "couldNotPlaceOrder": "Não foi possível completar o pedido",
+  "status": "Status:",
+  "confirmed": "Confirmado",
+  "confirmedPreparingDelivery": "Confirmado - preparando o pedido",
+  "shipped": "Eviado",
+  "delivered": "Entregue",
+  "latestProducts": "Últimos Produtos",
+  "@latestProducts": {
+    "description": "Heading for product listings"
+  },
+  "searchProducts": "Buscar produtos",
+  "noProductsFound": "Nenhum produto encontrado",
+  "productNotFound": "Produto não encontrado",
+  "quantity": "Quantidade:",
+  "quantityValue": "Quantidade: {quantity}",
+  "@quantityValue": {
+    "description": "a quantidade disponível de produto a ser adicionada ao Carrinho",
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      }
+    }
+  },
+  "quantityAvailable": "{quantity} disponível",
+  "@quantityAvailable": {
+    "description": "a quantidade disponível de produto a ser adicionada ao Carrinho",
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      }
+    }
+  },
+  "shoppingCart": "Carrinho",
+  "@shoppingCart": {
+    "description": "título da página do carrinho de compras"
+  },
+  "addToCart": "Adicionar ao Carrinho",
+  "outOfStock": "Sem Estoque",
+  "cantAddItemToCart": "Não é possivel adicionar o item ao Carrinho",
+  "cantUpdateQuantity": "Não for possivel atualizar a quantidade",
+  "cantDeleteItem": "Erro ao remover o item",
+  "alreadyAddedToCart": "Item já adicionado ao Carrinho",
+  "shoppingCartEmpty": "Seu Carrinho está vazio",
+  "goBack": "Voltar",
+  "checkout": "Finalizar",
+  "receipt": "Comprovante (PDF)",
+  "notFound404": "404 - Pagina não encontrada!",
+  "goHome": "Voltar ao Início"
+}

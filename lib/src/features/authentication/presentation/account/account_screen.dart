@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localization_ecommerce/src/common_widgets/alert_dialogs.dart';
 import 'package:localization_ecommerce/src/features/authentication/data/firebase_auth_repository.dart';
 import 'package:localization_ecommerce/src/features/authentication/presentation/account/account_screen_controller.dart';
-import 'package:localization_ecommerce/src/localization/string_hardcoded.dart';
+import 'package:localization_ecommerce/src/localization/app_localizations_context.dart';
 import 'package:flutter/material.dart';
 import 'package:localization_ecommerce/src/common_widgets/action_text_button.dart';
 import 'package:localization_ecommerce/src/common_widgets/responsive_center.dart';
@@ -24,18 +24,18 @@ class AccountScreen extends ConsumerWidget {
       appBar: AppBar(
         title: state.isLoading
             ? const CircularProgressIndicator()
-            : Text('Account'.hardcoded),
+            : Text(context.loc.account),
         actions: [
           ActionTextButton(
-            text: 'Logout'.hardcoded,
+            text: context.loc.logout,
             onPressed: state.isLoading
                 ? null
                 : () async {
                     final logout = await showAlertDialog(
                       context: context,
-                      title: 'Are you sure?'.hardcoded,
-                      cancelActionText: 'Cancel'.hardcoded,
-                      defaultActionText: 'Logout'.hardcoded,
+                      title: context.loc.areYouSure,
+                      cancelActionText: context.loc.cancel,
+                      defaultActionText: context.loc.logout,
                     );
                     if (logout == true) {
                       ref
@@ -73,25 +73,25 @@ class UserDataTable extends ConsumerWidget {
       columns: [
         DataColumn(
           label: Text(
-            'Field'.hardcoded,
+            context.loc.field,
             style: style,
           ),
         ),
         DataColumn(
           label: Text(
-            'Value'.hardcoded,
+            context.loc.value,
             style: style,
           ),
         ),
       ],
       rows: [
         _makeDataRow(
-          'uid'.hardcoded,
+          context.loc.uidLowercase,
           user?.uid ?? '',
           style,
         ),
         _makeDataRow(
-          'email'.hardcoded,
+          context.loc.emailLowercase,
           user?.email ?? '',
           style,
         ),
