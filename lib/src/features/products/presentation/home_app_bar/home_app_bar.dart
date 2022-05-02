@@ -31,7 +31,10 @@ class HomeAppBar extends ConsumerWidget with PreferredSizeWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     if (screenWidth < Breakpoint.tablet) {
       return AppBar(
-        title: Text(context.loc.appBarTile),
+        title: InkWell(
+          child: Text(context.loc.appBarTile),
+          onTap: () {},
+        ),
         actions: [
           const ShoppingCartIcon(),
           MoreMenuButton(user: user),
@@ -39,7 +42,7 @@ class HomeAppBar extends ConsumerWidget with PreferredSizeWidget {
       );
     } else {
       return AppBar(
-        title: Text(context.loc.appBarTile),
+        title: InkWell(child: Text(context.loc.appBarTile), onTap: () => {}),
         actions: [
           const ShoppingCartIcon(),
           if (user != null) ...[

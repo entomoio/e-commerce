@@ -134,7 +134,8 @@
   "shoppingCartEmpty": "Seu Carrinho está vazio",
   "goBack": "Voltar",
   "checkout": "Finalizar",
-  "receipt": "Comprovante (PDF)",
+  "receipt": "Recibo",
+  "invoice": "Comprovante (PDF)",
   "notFound404": "404 - Pagina não encontrada!",
   "goHome": "Voltar ao Início"
 }

@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localization_ecommerce/src/features/authentication/data/firebase_auth_repository.dart';
 import 'package:localization_ecommerce/src/features/authentication/presentation/account/account_screen.dart';
 import 'package:localization_ecommerce/src/features/checkout/presentation/checkout_screen.dart';
+import 'package:localization_ecommerce/src/features/pdf/data/pdf_screen.dart';
 import 'package:localization_ecommerce/src/features/reviews/presentation/leave_review_screen/leave_review_screen.dart';
 import 'package:localization_ecommerce/src/routing/not_found_screen.dart';
 import 'package:localization_ecommerce/src/features/orders/presentation/orders_list/orders_list_screen.dart';
@@ -22,6 +23,7 @@ enum AppRoute {
   orders,
   account,
   signIn,
+  pdf,
 }
 
 final goRouterProvider = Provider<GoRouter>((ref) {
@@ -86,6 +88,14 @@ final goRouterProvider = Provider<GoRouter>((ref) {
                   ),
                 ),
               ],
+            ),
+            GoRoute(
+              path: 'pdf',
+              name: AppRoute.pdf.name,
+              pageBuilder: (context, state) => const MaterialPage(
+                fullscreenDialog: true,
+                child: InvoicePdfPage(),
+              ),
             ),
             GoRoute(
               path: 'orders',

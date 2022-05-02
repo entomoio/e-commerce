@@ -20,7 +20,7 @@
   "register": "Register",
   "forgotPassword": "Forgot password",
   "forgotPasswordQuestion": "Forgot password?",
-  "createAnAccount": "Create an account",
+  "createAnAccount": "New Account",
   "needAnAccount": "Need an account? Register",
   "haveAnAccount": "Have an account? Sign in",
   "signInFailed": "Sign in failed",
@@ -131,7 +131,8 @@
   "shoppingCartEmpty": "Your shopping cart is empty",
   "goBack": "Go Back",
   "checkout": "Checkout",
-  "receipt": "Receipt (PDF)",
+  "receipt": "Receipt",
+  "invoice": "Invoice (PDF)",
   "notFound404": "404 - Page not found!",
   "goHome": "Go Home"
 }

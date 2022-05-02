@@ -1,7 +1,17 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.localization_ecommerce">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.localization_ecommerce">
     <!-- Flutter needs it to communicate with the running application
          to allow setting breakpoints, to provide hot reload, etc.
     -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application android:label="localization_ecommerce" android:name="${applicationName}" android:icon="@mipmap/ic_launcher">
+
+        <provider android:name="androidx.core.content.FileProvider" android:authorities="com.example.localization_ecommerce.fileprovider" android:grantUriPermissions="true" android:exported="false">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths" />
+        </provider>
+
+    </application>
+
 </manifest>
