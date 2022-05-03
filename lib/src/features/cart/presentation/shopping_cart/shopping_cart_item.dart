@@ -101,14 +101,14 @@ class ShoppingCartItemContents extends StatelessWidget {
                         showNotImplementedAlertDialog(context: context);
                       },
                     ),
-                    IconButton(
-                      key: deleteKey(itemIndex),
-                      icon: Icon(Icons.delete, color: Colors.red[700]),
-                      // TODO: Implement onPressed
-                      onPressed: () {
-                        showNotImplementedAlertDialog(context: context);
-                      },
-                    ),
+                    // IconButton(
+                    //   key: deleteKey(itemIndex),
+                    //   icon: Icon(Icons.delete, color: Colors.red[700]),
+                    //   // TODO: Implement onPressed
+                    //   onPressed: () {
+                    //     showNotImplementedAlertDialog(context: context);
+                    //   },
+                    // ),
                     const Spacer(),
                   ],
                 )

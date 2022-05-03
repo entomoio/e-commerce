@@ -37,29 +37,29 @@ class ItemQuantitySelector extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          IconButton(
-            key: decrementKey(itemIndex),
-            icon: const Icon(Icons.remove),
-            onPressed: onChanged != null && quantity > 1
-                ? () => onChanged!.call(quantity - 1)
-                : null,
-          ),
+          // IconButton(
+          //   key: decrementKey(itemIndex),
+          //   icon: const Icon(Icons.remove),
+          //   onPressed: onChanged != null && quantity > 1
+          //       ? () => onChanged!.call(quantity - 1)
+          //       : null,
+          // ),
           SizedBox(
             width: 30.0,
             child: Text(
               '$quantity',
               key: quantityKey(itemIndex),
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
-          IconButton(
-            key: incrementKey(itemIndex),
-            icon: const Icon(Icons.add),
-            onPressed: onChanged != null && quantity < maxQuantity
-                ? () => onChanged!.call(quantity + 1)
-                : null,
-          ),
+          // IconButton(
+          //   key: incrementKey(itemIndex),
+          //   icon: const Icon(Icons.add),
+          //   onPressed: onChanged != null && quantity < maxQuantity
+          //       ? () => onChanged!.call(quantity + 1)
+          //       : null,
+          // ),
         ],
       ),
     );

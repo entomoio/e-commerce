@@ -54,7 +54,7 @@ class AddToCartWidget extends StatelessWidget {
                 quantity: 1,
               ),
             );
-            context.pushNamed(AppRoute.cart.name);
+            context.goNamed(AppRoute.cart.name);
             // showNotImplementedAlertDialog(context: context);
           },
           text: availableQuantity > 0
