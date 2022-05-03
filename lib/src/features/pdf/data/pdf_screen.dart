@@ -10,6 +10,8 @@ import 'package:localization_ecommerce/src/utils/in_persistent_store.dart';
 import 'package:localization_ecommerce/src/utils/invoice_service.dart'
     if (dart.library.html) 'package:localization_ecommerce/src/utils/invoice_service_web.dart';
 
+//package selector is needed because html package does not work on mobile, only web
+//https://github.com/syncfusion/flutter-widgets/tree/master/packages/syncfusion_flutter_pdf/example/lib
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 

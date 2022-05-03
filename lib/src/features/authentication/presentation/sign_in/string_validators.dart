@@ -51,12 +51,15 @@ class EmailEditingRegexValidator extends RegexValidator {
 }
 
 class EmailSubmitRegexValidator extends RegexValidator {
-  EmailSubmitRegexValidator() : super(regexSource: '^\\S+@\\S+\\.\\S+\$');
+  EmailSubmitRegexValidator() : super(regexSource: '^\\S+@\\S+\\.\\SS+\$');
 }
 
 class NonEmptyStringValidator extends StringValidator {
   @override
-  bool isValid(String value) {
+  bool isValid(String? value) {
+    if (value == null) {
+      return false;
+    }
     return value.isNotEmpty;
   }
 }

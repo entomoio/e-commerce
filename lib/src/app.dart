@@ -11,6 +11,8 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final goRouter = ref.watch(goRouterProvider);
     return MaterialApp.router(
+      // locale: const Locale('en', 'US'),
+      // locale: const Locale('pt', 'BR'),
       debugShowCheckedModeBanner: false,
       restorationScopeId: 'app',
       localizationsDelegates: AppLocalizations.localizationsDelegates,
