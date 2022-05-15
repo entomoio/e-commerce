@@ -7,7 +7,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -18,7 +18,7 @@ dependencies:
   flutter_rating_bar: 4.0.0
   go_router: 3.0.3
   shared_preferences: ^2.0.13
-  flutter_riverpod: 2.0.0-dev.5
+  flutter_riverpod: 2.0.0-dev.7
   rxdart: 0.27.3
   firebase_core: ^1.15.0
   firebase_auth: ^3.3.16
@@ -33,7 +33,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
 
 flutter:
   uses-material-design: true
